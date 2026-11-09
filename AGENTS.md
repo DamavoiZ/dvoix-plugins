@@ -107,7 +107,7 @@ Vor jedem Commit muss die Prüfung grün sein. Es gibt keine npm-Abhängigkeiten
 
 ## Arbeitsablauf
 
-- Ein Thema pro Branch und PR. Nie direkt auf `main` pushen. Ein PR trägt höchstens ein Plugin ein oder aus.
+- Nie direkt auf `main` pushen.
 - Commit-Messages auf Englisch, im Imperativ, eine Zeile Zusammenfassung (z. B. „Add kanban plugin to the registry“).
 - PR-Beschreibung: welches Plugin, Link zum Repo und zum Release, wie geprüft.
 - README und diese Regeln aktualisieren, wenn sich Format, Prüfung oder Ablauf ändern.
