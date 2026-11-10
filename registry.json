@@ -8,6 +8,14 @@
       "description": "Kanban boards as .kboard files: columns and cards in plain Markdown, with drag and drop.",
       "repo": "dvoi-dev/dvoix-kanban",
       "channel": "official"
+    },
+    {
+      "id": "crew",
+      "name": "Crew",
+      "author": "damavoi",
+      "description": "Chat with AI coding agents like Claude Code, Codex and Pi in the sidebar; they work right in your vault.",
+      "repo": "dvoi-dev/dvoix-crew",
+      "channel": "official"
     }
   ]
 }
