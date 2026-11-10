@@ -4,7 +4,7 @@ Feste Regeln für alle KI-Agents (Claude, Codex, Copilot, …), die in diesem Re
 
 ## Was das hier ist
 
-Die Liste der Plugins im Plugin-Store von [dvoix](https://github.com/DamavoiZ/dvoix). Die App lädt `registry.json` vom Branch `main` und zeigt die Einträge unter **Einstellungen → Plugin-Store**. Hier liegt nur diese Liste und ihre Prüfung, kein Code von Plugins.
+Die Liste der Plugins im Plugin-Store von [dvoix](https://github.com/dvoi-dev/dvoix). Die App lädt `registry.json` vom Branch `main` und zeigt die Einträge unter **Einstellungen → Plugin-Store**. Hier liegt nur diese Liste und ihre Prüfung, kein Code von Plugins.
 
 ## Die Repos von dvoix
 
@@ -12,17 +12,17 @@ dvoix verteilt sich auf mehrere Repositories. Dieser Abschnitt steht gleich in d
 
 | Repo | Wofür | Was dort hingehört |
 | --- | --- | --- |
-| [`DamavoiZ/dvoix`](https://github.com/DamavoiZ/dvoix) | die App | Rust-Kern, Tauri-Hülle, Svelte-Frontend, Core-Plugins, Plugin-API, Plugin-Store in der App, Entwickler-Anleitung für Store-Plugins (`docs/plugins/`), README für Entwickler |
-| [`DamavoiZ/dvoix-website`](https://github.com/DamavoiZ/dvoix-website) | Produktseite und Doku | Produktseite unter `/`, Doku für Nutzer und Plugin-Entwickler unter `/docs`, Screenshots für die Seite, Docker-Image für den Server |
-| [`DamavoiZ/dvoix-plugins`](https://github.com/DamavoiZ/dvoix-plugins) | Liste des Plugin-Stores | nur `registry.json` und ihre Prüfung (`scripts/validate.mjs`). Kein Plugin-Code |
-| `DamavoiZ/dvoix-<name>` | je ein offizielles Store-Plugin | Code, `manifest.json`, Releases mit `manifest.json`, `main.js`, `styles.css` |
+| [`dvoi-dev/dvoix`](https://github.com/dvoi-dev/dvoix) | die App | Rust-Kern, Tauri-Hülle, Svelte-Frontend, Core-Plugins, Plugin-API, Plugin-Store in der App, Entwickler-Anleitung für Store-Plugins (`docs/plugins/`), README für Entwickler |
+| [`dvoi-dev/dvoix-website`](https://github.com/dvoi-dev/dvoix-website) | Produktseite und Doku | Produktseite unter `/`, Doku für Nutzer und Plugin-Entwickler unter `/docs`, Screenshots für die Seite, Docker-Image für den Server |
+| [`dvoi-dev/dvoix-plugins`](https://github.com/dvoi-dev/dvoix-plugins) | Liste des Plugin-Stores | nur `registry.json` und ihre Prüfung (`scripts/validate.mjs`). Kein Plugin-Code |
+| `dvoi-dev/dvoix-<name>` | je ein offizielles Store-Plugin | Code, `manifest.json`, Releases mit `manifest.json`, `main.js`, `styles.css` |
 
 ### Wo gehört was hin?
 
 | Aufgabe | Repo |
 | --- | --- |
 | Grundfunktion, die fast jeder braucht (Explorer, Suche, Aufgaben, …) | `dvoix`, als Core-Plugin unter `src/lib/plugins/core/` |
-| Zusatzfunktion, die nicht jeder will (Kanban, Tracking, …) | eigenes Repo `DamavoiZ/dvoix-<name>` als Store-Plugin, dazu ein Eintrag in `dvoix-plugins` |
+| Zusatzfunktion, die nicht jeder will (Kanban, Tracking, …) | eigenes Repo `dvoi-dev/dvoix-<name>` als Store-Plugin, dazu ein Eintrag in `dvoix-plugins` |
 | Plugin-API erweitern (`PluginContext`, Berechtigungen) | `dvoix`, dazu `docs/plugins/README.md` dort und die Seite `plugin-api.md` der Website |
 | Erklären, wie man dvoix bedient | `dvoix-website`, Seite in `src/content/docs/` |
 | Plugin im Store anbieten oder entfernen | `dvoix-plugins`, `registry.json` |
@@ -31,8 +31,8 @@ dvoix verteilt sich auf mehrere Repositories. Dieser Abschnitt steht gleich in d
 ### Was über Repo-Grenzen zusammenhängt
 
 - **Format der Plugin-Liste:** festgelegt in `crates/dvoix-core/src/store.rs` (`parse_registry`) der App, Beispiel in `docs/plugins/registry.example.json`, geprüft von `scripts/validate.mjs` in `dvoix-plugins`. Ändert sich das Format, ändern sich alle drei Stellen.
-- **Adresse der Plugin-Liste:** Die App liest `https://raw.githubusercontent.com/DamavoiZ/dvoix-plugins/main/registry.json`. Repo-Name, Branch `main` und Dateiname nie ändern, sonst findet keine installierte App mehr Plugins.
-- **Offiziell:** `"channel": "official"` gilt nur für Repos von `DamavoiZ`. Die App und die Prüfung in `dvoix-plugins` setzen das beide durch.
+- **Adresse der Plugin-Liste:** Die App liest `https://raw.githubusercontent.com/dvoi-dev/dvoix-plugins/main/registry.json`. Repo-Name, Branch `main` und Dateiname nie ändern, sonst findet keine installierte App mehr Plugins.
+- **Offiziell:** `"channel": "official"` gilt nur für Repos von `dvoi-dev`. Die App und die Prüfung in `dvoix-plugins` setzen das beide durch.
 - **Plugin-API:** `src/lib/plugins/store/api.ts` in der App, `docs/plugins/README.md` in der App und `src/content/docs/plugin-api.md` auf der Website beschreiben dieselbe API und müssen zusammenpassen.
 - **Funktionen der App:** Was die Website-Doku über die App sagt, muss zum Code in `dvoix` passen. Ändert sich die App für Nutzer sichtbar, wird die Doku nachgezogen.
 
@@ -47,7 +47,7 @@ dvoix verteilt sich auf mehrere Repositories. Dieser Abschnitt steht gleich in d
 1. **Nur die Liste.** In dieses Repo kommen `registry.json`, die Prüfung und Doku dazu. Plugin-Code, Releases und Issues zu einem Plugin gehören in das Repo des Plugins.
 2. **Die App entscheidet über das Format.** Maßgeblich ist `parse_registry` in `crates/dvoix-core/src/store.rs` im App-Repo. `scripts/validate.mjs` prüft dieselben Regeln, nur strenger: Was die App still überspringt, lässt hier die CI scheitern. Ändert sich das eine, wird das andere im selben Zug angepasst.
 3. **Die Adresse bleibt fest.** Repo-Name, Branch `main` und Dateiname `registry.json` ändern sich nicht. Die App wertet `"version"` heute nicht aus: Ein inkompatibles Format geht erst live, wenn eine App-Version es lesen kann, und alte Apps dürfen daran nicht kaputtgehen.
-4. **Offiziell heißt `DamavoiZ`.** `"channel": "official"` nur für Repos von `DamavoiZ`. Alles andere ist `community`.
+4. **Offiziell heißt `dvoi-dev`.** `"channel": "official"` nur für Repos von `dvoi-dev`. Alles andere ist `community`.
 5. **Eine `id` nie ändern.** Sie ist die `id` aus dem `manifest.json` des Plugins und der Ordnername in `<vault>/.dvoix/plugins/<id>/`. Umbenennen heißt für Nutzer: Plugin weg, Einstellungen weg.
 6. **Immer die neuesten Versionen.** Node.js (aktuelle Version, nicht eine ältere LTS) in `.nvmrc` und alle GitHub Actions auf der jeweils neuesten stabilen Version. Ältere Versionen nur mit Begründung im PR.
 
