@@ -1,9 +1,9 @@
 // Checks registry.json the same way the app does (crates/dvoix-core/src/store.rs
-// in DamavoiZ/dvoix), so a broken entry fails in CI instead of being skipped
+// in dvoi-dev/dvoix), so a broken entry fails in CI instead of being skipped
 // silently in the app.
 import { readFileSync } from "node:fs";
 
-const OFFICIAL_OWNER = "damavoiz";
+const OFFICIAL_OWNER = "dvoi-dev";
 const errors = [];
 let registry;
 try {
@@ -32,7 +32,7 @@ for (const [i, p] of (registry.plugins ?? []).entries()) {
   }
   if (p?.channel !== "official" && p?.channel !== "community") errors.push(`${at}: channel must be "official" or "community"`);
   if (p?.channel === "official" && p.repo?.split("/")[0].toLowerCase() !== OFFICIAL_OWNER) {
-    errors.push(`${at}: only repositories of DamavoiZ can be official`);
+    errors.push(`${at}: only repositories of dvoi-dev can be official`);
   }
 }
 

@@ -6,7 +6,7 @@
       "name": "Kanban",
       "author": "damavoi",
       "description": "Kanban boards as .kboard files: columns and cards in plain Markdown, with drag and drop.",
-      "repo": "DamavoiZ/dvoix-kanban",
+      "repo": "dvoi-dev/dvoix-kanban",
       "channel": "official"
     }
   ]
