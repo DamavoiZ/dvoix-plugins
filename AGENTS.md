@@ -22,8 +22,8 @@ dvoix verteilt sich auf mehrere Repositories. Dieser Abschnitt steht gleich in d
 | Aufgabe | Repo |
 | --- | --- |
 | Grundfunktion für Notizen und Editor, die immer da ist (Explorer, Suche, Tags, Backlinks, Tabs, Ansichten, …) | `dvoix`, als Core-Feature unter `src/lib/features/` |
-| Abschaltbare Funktion, die mit der App kommt (Aufgaben, Projekte, Graph, Git, …) | `dvoix`, als Core-Plugin unter `src/lib/plugins/core/` |
-| Zusatzfunktion, die nicht jeder will (Kanban, Tracking, …) | eigenes Repo `dvoi-dev/dvoix-<name>` als Store-Plugin, dazu ein Eintrag in `dvoix-plugins` |
+| Abschaltbare Funktion, die mit der App kommt (Aufgaben, Canvas, Graph, …) | `dvoix`, als Core-Plugin unter `src/lib/plugins/core/` |
+| Zusatzfunktion, die nicht jeder will (Kanban, Projekte, Git, Tracking, …) | eigenes Repo `dvoi-dev/dvoix-<name>` als Store-Plugin, dazu ein Eintrag in `dvoix-plugins` |
 | Plugin-API erweitern (`PluginContext`, Berechtigungen) | `dvoix`, dazu `docs/plugins/README.md` dort und die Seite `plugin-api.md` der Website |
 | Erklären, wie man dvoix bedient | `dvoix-website`, Seite in `src/content/docs/` |
 | Plugin im Store anbieten oder entfernen | `dvoix-plugins`, `registry.json` |
