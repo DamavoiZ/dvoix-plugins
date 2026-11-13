@@ -16,6 +16,22 @@
       "description": "Chat with AI coding agents like Claude Code, Codex and Pi in the sidebar; they work right in your vault.",
       "repo": "dvoi-dev/dvoix-crew",
       "channel": "official"
+    },
+    {
+      "id": "projects",
+      "name": "Projects",
+      "author": "damavoi",
+      "description": "Lists notes with \"type: project\" in their frontmatter as projects with status, due date and task progress.",
+      "repo": "dvoi-dev/dvoix-projects",
+      "channel": "official"
+    },
+    {
+      "id": "git",
+      "name": "Git",
+      "author": "damavoi",
+      "description": "Version the vault with Git: stage, commit, switch branches, push, pull and browse the history with diffs.",
+      "repo": "dvoi-dev/dvoix-git",
+      "channel": "official"
     }
   ]
 }
